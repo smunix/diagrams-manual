@@ -34,7 +34,7 @@
               trivial-constraint = unmarkBroken super.trivial-constraint;
               constrained-categories = unmarkBroken super.constrained-categories;
               linearmap-category = unmarkBroken super.linearmap-category;
-
+              manifolds = unmarkBroken super.manifolds;
             });
             {
               diagrams-manual = rec {
