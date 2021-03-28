@@ -36,6 +36,7 @@
               linearmap-category = unmarkBroken super.linearmap-category;
               manifolds = unmarkBroken super.manifolds;
               diagrams-cairo = unmarkBroken super.diagrams-cairo;
+              diagrams-gtk = unmarkBroken super.diagrams-gtk;
             });
             {
               diagrams-manual = rec {
