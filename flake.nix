@@ -5,6 +5,8 @@
     smunix-diagrams.url = "github:smunix/diagrams/fix.diagrams";
     smunix-diagrams-contrib.url = "github:smunix/diagrams-contrib/fix.diagrams";
     smunix-diagrams-core.url = "github:smunix/diagrams-core/fix.diagrams";
+    smunix-diagrams-cairo.url = "github:smunix/diagrams-cairo/fix.diagrams";
+    smunix-diagrams-gtk.url = "github:smunix/diagrams-gtk/fix.diagrams";
     smunix-diagrams-lib.url = "github:smunix/diagrams-lib/fix.diagrams";
     smunix-diagrams-svg.url = "github:smunix/diagrams-svg/fix.diagrams";
     smunix-monoid-extras.url = "github:smunix/monoid-extras/fix.diagrams";
@@ -12,7 +14,7 @@
   outputs =
     { self, nixpkgs, flake-utils, smunix-diagrams, smunix-diagrams-lib,
       smunix-diagrams-contrib, smunix-diagrams-core, smunix-diagrams-svg,
-      smunix-monoid-extras,
+      smunix-monoid-extras, smunix-diagrams-cairo, smunix-diagrams-gtk,
       ...
     }:
     with flake-utils.lib;
@@ -25,19 +27,25 @@
             with haskellPackages.extend(self: super: {
               inherit (smunix-diagrams-contrib.packages.${system}) diagrams-contrib;
               inherit (smunix-diagrams-core.packages.${system}) diagrams-core;
+              inherit (smunix-diagrams-cairo.packages.${system}) diagrams-cairo;
+              inherit (smunix-diagrams-gtk.packages.${system}) diagrams-gtk;
               inherit (smunix-monoid-extras.packages.${system}) monoid-extras;
               inherit (smunix-diagrams-lib.packages.${system}) diagrams-lib;
               inherit (smunix-diagrams-svg.packages.${system}) diagrams-svg;
               inherit (smunix-diagrams.packages.${system}) diagrams;
               colour-space = unmarkBroken super.colour-space;
               dynamic-plot = unmarkBroken super.dynamic-plot;
-              trivial-constraint = unmarkBroken super.trivial-constraint;
+              trivial-constraint =
+                super.callCabal2nix "trivial-constraint" (fetchFromGitHub {
+                  owner = "leftaroundabout";
+                  repo = "trivial-constraint";
+                  rev = "8ad79abb16a8f04916f7ac004a7c850d3e1c300e";
+                  sha256 = "0vc9qg127929rzix0x25nm65adj1ibj0v7rwnsks3z1g10w7lz7q";
+                }) {};              
               constrained-categories = unmarkBroken super.constrained-categories;
               linearmap-category = unmarkBroken super.linearmap-category;
               manifolds = unmarkBroken super.manifolds;
               manifold-random = unmarkBroken super.manifold-random;
-              diagrams-cairo = unmarkBroken super.diagrams-cairo;
-              diagrams-gtk = unmarkBroken super.diagrams-gtk;
             });
             {
               diagrams-manual = rec {
