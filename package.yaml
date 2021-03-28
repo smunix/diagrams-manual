@@ -24,6 +24,7 @@ dependencies:
 - diagrams
 - diagrams-svg
 - diagrams-lib
+- diagrams-cairo
 - dynamic-plot
 
 library:

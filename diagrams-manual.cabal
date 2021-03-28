@@ -33,8 +33,10 @@ library
   build-depends:
       base >=4.7
     , diagrams
+    , diagrams-cairo
     , diagrams-lib
     , diagrams-svg
+    , dynamic-plot
   default-language: Haskell2010
 
 executable diagrams-manual-exe
@@ -47,9 +49,11 @@ executable diagrams-manual-exe
   build-depends:
       base >=4.7
     , diagrams
+    , diagrams-cairo
     , diagrams-lib
     , diagrams-manual
     , diagrams-svg
+    , dynamic-plot
   default-language: Haskell2010
 
 test-suite diagrams-manual-test
@@ -63,7 +67,9 @@ test-suite diagrams-manual-test
   build-depends:
       base >=4.7
     , diagrams
+    , diagrams-cairo
     , diagrams-lib
     , diagrams-manual
     , diagrams-svg
+    , dynamic-plot
   default-language: Haskell2010

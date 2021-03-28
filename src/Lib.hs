@@ -3,14 +3,9 @@ module Lib
   )
 where
 
-import Diagrams.Backend.SVG.CmdLine
 import Diagrams.Prelude
 import Graphics.Dynamic.Plot.R2
 
-myCircle :: Diagram B
-myCircle = circle 1
-
-exJuxtaposition :: Diagram B
 exJuxtaposition = circles ||| strutX 1 ||| (circles <> square 1)
   where
     d1 = juxtapose unitX (square 1) (circle 1 # fc red)
@@ -20,6 +15,10 @@ exJuxtaposition = circles ||| strutX 1 ||| (circles <> square 1)
 
 someFunc :: IO ()
 someFunc = do
-  plotWindow [fnPlot sin, plot $ \(ViewXCenter xc) x -> sin xc + (x - xc) * cos xc]
+  plotWindow
+    [ shapePlot,
+      fnPlot sin,
+      plot $ \(ViewXCenter xc) x -> sin xc + (x - xc) * cos xc
+    ]
   -- mainWith $ myCircle === exJuxtaposition
   return ()
