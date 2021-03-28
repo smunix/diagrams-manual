@@ -31,6 +31,7 @@
               inherit (smunix-diagrams.packages.${system}) diagrams;
               colour-space = unmarkBroken super.colour-space;
               dynamic-plot = unmarkBroken super.dynamic-plot;
+              trivial-constraint = unmarkBroken super.trivial-constraint;
               constrained-categories = unmarkBroken super.constrained-categories;
             });
             {
