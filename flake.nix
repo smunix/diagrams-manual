@@ -35,6 +35,7 @@
               constrained-categories = unmarkBroken super.constrained-categories;
               linearmap-category = unmarkBroken super.linearmap-category;
               manifolds = unmarkBroken super.manifolds;
+              diagrams-cairo = unmarkBroken super.diagrams-cairo;
             });
             {
               diagrams-manual = rec {
