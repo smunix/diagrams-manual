@@ -1,0 +1,52 @@
+name:                diagrams-manual
+version:             0.1.0.0
+github:              "smunix/diagrams-manual"
+license:             BSD3
+author:              "Providence Salumu"
+maintainer:          "Providence.Salumu@smunix.com"
+copyright:           "2021 Providence Salumu"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/smunix/diagrams-manual#readme>
+
+dependencies:
+- base >= 4.7
+- diagrams
+- diagrams-svg
+- diagrams-lib
+- dynamic-plot
+
+library:
+  source-dirs: src
+
+executables:
+  diagrams-manual-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - diagrams-manual
+    
+tests:
+  diagrams-manual-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - diagrams-manual

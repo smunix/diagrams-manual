@@ -1,0 +1,13 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:diagrams-manual"
+
+    - path: "app/Main.hs"
+      component: "diagrams-manual:exe:diagrams-manual-exe"
+
+    - path: "app/Paths_diagrams_manual.hs"
+      component: "diagrams-manual:exe:diagrams-manual-exe"
+
+    - path: "test"
+      component: "diagrams-manual:test:diagrams-manual-test"
