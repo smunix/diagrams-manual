@@ -34,13 +34,19 @@
               inherit (smunix-diagrams-svg.packages.${system}) diagrams-svg;
               inherit (smunix-diagrams.packages.${system}) diagrams;
               colour-space = unmarkBroken super.colour-space;
-              dynamic-plot = unmarkBroken super.dynamic-plot;
               trivial-constraint =
                 super.callCabal2nix "trivial-constraint" (fetchFromGitHub {
                   owner = "leftaroundabout";
                   repo = "trivial-constraint";
                   rev = "8ad79abb16a8f04916f7ac004a7c850d3e1c300e";
                   sha256 = "0vc9qg127929rzix0x25nm65adj1ibj0v7rwnsks3z1g10w7lz7q";
+                }) {};              
+              dynamic-plot =
+                super.callCabal2nix "dynamic-plot" (fetchFromGitHub {
+                  owner = "leftaroundabout";
+                  repo = "dynamic-plot";
+                  rev = "3284c7b99f8ff077f50241ef856054b075d04c85";
+                  sha256 = "1bxsc2qqkglv31ijdc46lvpfivsq8nw9sqafhkr1xqbj242fl79d";
                 }) {};              
               constrained-categories = unmarkBroken super.constrained-categories;
               linearmap-category = unmarkBroken super.linearmap-category;
