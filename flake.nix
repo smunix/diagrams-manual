@@ -33,6 +33,8 @@
               dynamic-plot = unmarkBroken super.dynamic-plot;
               trivial-constraint = unmarkBroken super.trivial-constraint;
               constrained-categories = unmarkBroken super.constrained-categories;
+              linearmap-category = unmarkBroken super.linearmap-category;
+
             });
             {
               diagrams-manual = rec {
