@@ -6,7 +6,7 @@ where
 import Diagrams.Prelude
 import Graphics.Dynamic.Plot.R2
 
-exJuxtaposition = circles ||| strutX 1 ||| (circles <> square 1)
+diag = circles ||| strutX 1 ||| (circles <> square 1)
   where
     d1 = juxtapose unitX (square 1) (circle 1 # fc red)
     d2 = juxtapose (unitX ^+^ unitY) (square 1) (circle 1 # fc green)
@@ -16,9 +16,8 @@ exJuxtaposition = circles ||| strutX 1 ||| (circles <> square 1)
 someFunc :: IO ()
 someFunc = do
   plotWindow
-    [ shapePlot,
+    [ shapePlot diag,
       fnPlot sin,
       plot $ \(ViewXCenter xc) x -> sin xc + (x - xc) * cos xc
     ]
-  -- mainWith $ myCircle === exJuxtaposition
   return ()
