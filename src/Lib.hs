@@ -22,7 +22,10 @@ diag' n = hrule (2 * sum sizes) === circles & centerX
         & gaps .~ small
         & headLength .~ local 0.15
 
-    sizes = [0.2, 0.5, 0.4, 0.7, 0.1, 0.3] & cycle & take n
+    sizes =
+      [0.2, 0.5, 0.4, 0.7, 0.1, 0.3]
+        & cycle
+        & take n
 
     circles =
       sizes
@@ -38,9 +41,8 @@ diag' n = hrule (2 * sum sizes) === circles & centerX
 someFunc :: IO ()
 someFunc = do
   plotWindow
-    [ shapePlot diag,
+    [ shapePlot $ diag' 10 <> diag,
       fnPlot sin,
-      plot $ \(ViewXCenter xc) x -> sin xc + (x - xc) * cos xc,
-      shapePlot $ diag' 10
+      plot $ \(ViewXCenter xc) x -> sin xc + (x - xc) * cos xc
     ]
   return ()
