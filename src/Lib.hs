@@ -35,7 +35,7 @@ diag' n = hrule (2 * sum sizes) === circles # centerX
       sizes
         & zip [1 .. n]
         <&> ( \k@(sz, i) ->
-                text (show k # fontSizeL 0.2 # fc white) <> circle sz # fc green # named i
+                text (show k) # fontSizeL 0.2 # fc white <> circle sz # fc green # named i
             )
         <&> alignT
         & atPoints (regPoly n 10 & trailVertices)
