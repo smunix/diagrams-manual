@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 
 module Lib
   ( someFunc,
@@ -17,6 +18,7 @@ diag = circles ||| strutX 1 ||| (circles <> square 1)
     d3 = juxtapose unitY (square 1) (circle 1 & fc blue)
     circles = mconcat [d1, d2, d3]
 
+diag' :: Int -> PlainGraphicsR2
 diag' n = hrule (2 * sum sizes) === circles & centerX
   where
     arrOpts =
@@ -33,8 +35,9 @@ diag' n = hrule (2 * sum sizes) === circles & centerX
       sizes
         & zip [1 .. n]
         <&> ( \k@(sz, i) ->
-                text (show k & fontSizeL 0.2 & fc white)
-                  <> circle sz & fc green & named i
+                -- text (show k & fontSizeL 0.2 & fc white)
+                --   <>
+              circle sz & fc green & named i
             )
         <&> alignT
         & atPoints (regPoly n 10 & trailVertices)
