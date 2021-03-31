@@ -38,7 +38,7 @@ diag' n = hrule (2 * sum sizes) === circles # centerX
                 text (show k) # fontSizeL 0.2 # fc white <> circle sz # fc green # named (fromIntegral i)
             )
         <&> alignT
-        & atPoints (regPoly n 10 & trailVertices)
+        & atPoints (regPoly n 10.0 & trailVertices)
         & applyAll [connectOutside' arrOpts j k | j <- [1 .. n -1], k <- [j + 1 .. n]]
 
 someFunc :: IO ()
